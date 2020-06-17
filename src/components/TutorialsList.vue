@@ -55,6 +55,7 @@
                 <p> Please click on a Tutorial... </p>
             </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -101,12 +102,31 @@ export default {
                 .catch( e=> {
                     console.log(e);
                 })
-        }
-    }
-
+        },
+         
+         searchTitle() {
+             TutorialDataService.findByTitle(this.title)
+                .then(response => {
+                    this.tutorials = response.data;
+                    console.log(response.data);
+                })
+                .catch( e=>{
+                    console.log(e);
+                } )
+         },
+         mounted(){
+             this.retrieveTutorials();
+         }
     
+    }    
 }
 </script>
-<style >
 
+
+<style>
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
 </style>
