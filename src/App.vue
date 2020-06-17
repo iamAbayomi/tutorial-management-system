@@ -26,5 +26,14 @@
 <script>
 export default {
   name: 'app'
+  ,
+  methods: {
+    retrieveTutorials(){
+      console.log("fuck");
+    }
+  },
+  mounted() {
+    this.retrieveTutorials();
+  }
 }
 </script>
